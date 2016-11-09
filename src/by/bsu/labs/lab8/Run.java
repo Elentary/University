@@ -23,15 +23,15 @@ public class Run {
         System.out.println();
 
         Arrays.sort(paiments);
-        for (int i = 0; i < paiments.length; i++) {
-            System.out.println(paiments[i]);
+        for (Paiment paiment : paiments) {
+            System.out.println(paiment);
         }
         System.out.println();
-        for (int i = 0; i < paiments.length; i++)
-            paiments[i].comparator = new SortedByYear();
+        for (Paiment paiment : paiments)
+            paiment.comparator = new SortedByYear();
         Arrays.sort(paiments);
-        for (int i = 0; i < paiments.length; i++) {
-            System.out.println(paiments[i]);
+        for (Paiment paiment : paiments) {
+            System.out.println(paiment);
         }
     }
 }

@@ -136,11 +136,9 @@ public class Paiment implements Comparable, Iterator {
                 if (Objects.equals(fields[i].getName(), currentField))
                     if (i == fields.length - 1) {
                         currentField = fields[0].getName();
-                        currentState = 0;
                         break;
                     } else {
                         currentField = fields[i + 1].getName();
-                        currentState = i + 1;
                         break;
                     }
 
