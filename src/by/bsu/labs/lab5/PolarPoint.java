@@ -4,6 +4,8 @@ import by.bsu.labs.lab4.exception.ArgumentOutOfRangeException;
 import by.bsu.labs.lab5.exception.InvalidCoordinatesNumberException;
 import by.bsu.labs.lab5.exception.NullCoordinatesException;
 
+import java.util.Arrays;
+
 import static java.lang.Math.*;
 
 /**
@@ -21,6 +23,10 @@ public class PolarPoint implements Point {
             throw new InvalidCoordinatesNumberException(
                 String.format("2 coordinates expected, but %d found", _coordinates.length));
         this.coordinates = _coordinates;
+    }
+
+    @Override public String toString() {
+        return "PolarPoint{" + "coordinates=" + Arrays.toString(coordinates) + '}';
     }
 
     @Override public double[] getCoordinates() throws NullCoordinatesException {

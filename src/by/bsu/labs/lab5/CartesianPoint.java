@@ -3,6 +3,8 @@ package by.bsu.labs.lab5;
 import by.bsu.labs.lab5.exception.InvalidCoordinatesNumberException;
 import by.bsu.labs.lab5.exception.NullCoordinatesException;
 
+import java.util.Arrays;
+
 /**
  * Created by amareelez on 7.11.16.
  */
@@ -51,5 +53,9 @@ public class CartesianPoint implements Point {
         tempCoordinates[0] = coordinates[0] * Math.cos(angle) - coordinates[1] * Math.sin(angle);
         tempCoordinates[1] = coordinates[0] * Math.sin(angle) - coordinates[1] * Math.cos(angle);
         coordinates = tempCoordinates.clone();
+    }
+
+    @Override public String toString() {
+        return "CartesianPoint{" + "coordinates=" + Arrays.toString(coordinates) + '}';
     }
 }
