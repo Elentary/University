@@ -4,13 +4,10 @@ import by.bsu.labs.lab4.exception.ArgumentOutOfRangeException;
 
 import java.util.Scanner;
 
-/**
- * Created by amareelez on 9.11.16.
- */
-
 public class Run {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Enter matrix dimension:");
             int n = scanner.nextInt();
             ArithmeticSquare arithmeticSquare = new ArithmeticSquare(n);
             System.out.println(arithmeticSquare);

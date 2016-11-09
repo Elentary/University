@@ -11,12 +11,18 @@ import java.util.Scanner;
 public class Run {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            while (scanner.hasNextInt()) {
-                int s = scanner.nextInt();
-                System.out.println(Converter.convert(s));
+            while (true) {
+                System.out.println("Enter string (empty string is ignored) or End to finish:");
+                String temp = scanner.nextLine();
+                if (temp.equals("End"))
+                    break;
+                else
+                    System.out.println(Converter.convert(Integer.parseInt(temp)));
             }
         } catch (ArgumentOutOfRangeException e) {
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("Empty string detected");
         }
     }
 }
