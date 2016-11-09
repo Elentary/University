@@ -6,7 +6,7 @@ import by.bsu.labs.lab4.exception.ArgumentOutOfRangeException;
  * Created by amareelez on 9.11.16.
  */
 
-public class Converter {
+class Converter {
     static String convert(int n) {
         if (Math.abs(n) > 1000)
             throw new ArgumentOutOfRangeException(
