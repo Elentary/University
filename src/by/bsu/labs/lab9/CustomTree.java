@@ -25,9 +25,19 @@ class Node<T extends Comparable<T>> {
         key = value;
     }
 
+    public Node<T> getParent() {
+        return parent;
+    }
+
+    boolean hasTwoChildren() {
+        return right != null && left != null;
+    }
+
     @Override public String toString() {
-        return "Node{" + "left=" + left.getKey() + ", right=" + right.getKey() + ", parent="
-            + parent.getKey() + ", key=" + key + '}';
+        return "Node{" + "left=" + (left == null ? "null" : left.getKey()) + ", right=" + (
+            right == null ? "null" : right.getKey()) + ", parent=" + (parent == null ?
+            "null" :
+            parent.getKey()) + ", key=" + key + '}';
     }
 }
 
@@ -64,11 +74,8 @@ public class CustomTree<T extends Comparable<T>> {
         }
     }
 
-    public void delete(T value) {
-        if (root == null)
-            throw new NullPointerException("One can't simply delete from empty tree");
-        Node<T> target = search(value);
-        if (target == null)
+    public void delete(Node<T> target) {
+        if (!belongsToTree(target))
             return;
 
         if (target.left == null && target.right == null) {
@@ -118,11 +125,18 @@ public class CustomTree<T extends Comparable<T>> {
         }
     }
 
+    public void delete(T value) {
+        if (root == null)
+            throw new NullPointerException("One can't simply delete from empty tree");
+        Node<T> target = search(value);
+        delete(target);
+    }
+
     public Node<T> search(T value) {
         if (root == null)
             return null;
         Node<T> result = root;
-        while (result.getKey() != value) {
+        while (result != null && result.getKey() != value) {
             if (value.compareTo(result.getKey()) < 0)
                 result = result.left;
             else
@@ -180,4 +194,18 @@ public class CustomTree<T extends Comparable<T>> {
             stringBuilder.append(" ");
         return stringBuilder.toString();
     }
+
+    public boolean belongsToTree(Node<T> node) {
+        if (root == null || node == null)
+            return false;
+        Node<T> result = root;
+        while (result != null && result != node) {
+            if (node.getKey().compareTo(result.getKey()) < 0)
+                result = result.left;
+            else
+                result = result.right;
+        }
+        return result != null;
+    }
 }
+

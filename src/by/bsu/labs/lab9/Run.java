@@ -16,7 +16,7 @@ public class Run {
         System.out.println("LRootR traverse: " + tree.leftRootRightTraverse(tree.getRoot()));
         System.out.println("RootLR traverse: " + tree.rootLeftRightTraverse(tree.getRoot()));
         tree.delete(tree.getRoot().getKey());
-        System.out.println("With root deleted: " + tree.leftRightRootTraverse(tree.getRoot()));
+        System.out.println("With root deleted: " + tree.rootLeftRightTraverse(tree.getRoot()));
 
         Integer tryToFound = random.nextInt(20);
         Node found = tree.search(tryToFound);
@@ -24,5 +24,27 @@ public class Run {
             System.out.println(String.format("%d is not found", tryToFound));
         else
             System.out.println(String.format("%d is found at ", tryToFound) + found);
+        while (true) {
+            if (!refactor(tree, tree.getRoot()))
+                break;
+        }
+        System.out.println("RootLR traverse: " + tree.rootLeftRightTraverse(tree.getRoot()));
+    }
+
+    static boolean refactor(CustomTree<Integer> tree, Node<Integer> node) {
+        if (node == null)
+            return false;
+        if (node.left != null)
+            refactor(tree, node.left);
+        if (node.right != null)
+            refactor(tree, node.right);
+        if (node.hasTwoChildren() && node != tree.getRoot()) {
+            if (node.parent.getKey().compareTo(0) < 0)
+                tree.delete(node.left);
+            else
+                tree.delete(node.right);
+            return true;
+        }
+        return false;
     }
 }
