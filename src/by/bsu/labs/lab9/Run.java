@@ -18,7 +18,7 @@ public class Run {
         tree.delete(tree.getRoot().getKey());
         System.out.println("With root deleted: " + tree.rootLeftRightTraverse(tree.getRoot()));
 
-        Integer tryToFound = random.nextInt(20);
+        Integer tryToFound = random.nextInt(15);
         Node found = tree.search(tryToFound);
         if (found == null)
             System.out.println(String.format("%d is not found", tryToFound));
