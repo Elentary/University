@@ -42,7 +42,6 @@ public class MainDialog extends JDialog {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         drawPanel = new DrawPanel();
     }
 }
