@@ -1,7 +1,7 @@
 package by.bsu.labs.lab11.form;
 
-import by.bsu.labs.lab11.action.adapter.MouseDrawAdapter;
-import by.bsu.labs.lab11.action.adapter.MouseDrawMotionAdapter;
+import by.bsu.labs.lab11.action.listener.MouseDrawListener;
+import by.bsu.labs.lab11.action.listener.MouseDrawMotionListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,8 +20,8 @@ public class DrawPanel extends JPanel {
     private BufferedImage background = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 
     public DrawPanel() {
-        addMouseMotionListener(new MouseDrawMotionAdapter());
-        addMouseListener(new MouseDrawAdapter());
+        addMouseMotionListener(new MouseDrawMotionListener());
+        addMouseListener(new MouseDrawListener());
         color = Color.RED;
     }
 
