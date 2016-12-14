@@ -11,6 +11,9 @@ public class Toy implements Comparable<Toy> {
     private double price;
     private int lowBorder, highBorder;
 
+    public Toy() {
+    }
+
     public Toy(String s) {
         String[] params = s.split(" ");
         if (params.length != 4)
