@@ -75,9 +75,9 @@ public class Flower {
     }
 
     @Override public String toString() {
-        return "Flower:\n" + "name = '" + name + '\'' + "\norigin = '" + origin + '\'' + "\nsoil = "
-            + soil + "\nvisualParameters = \n" + visualParameters + "\ngrowingTips = \n"
-            + growingTips + "\nmultiplying = " + multiplying;
+        return "Flower:<br>" + "name = '" + name + '\'' + "<br>origin = '" + origin + '\''
+            + "<br>soil = " + soil + "<br>visualParameters = <br>" + visualParameters
+            + "<br>growingTips = <br>" + growingTips + "<br>multiplying = " + multiplying;
     }
 
     public enum Multiplying {
@@ -98,7 +98,8 @@ public class Flower {
         }
 
         @Override public String toString() {
-            return "\thalm = " + halm + "\n\tleaf = " + leaf + "\n\tmeanSize = " + meanSize;
+            return "\t{<br>halm = " + halm + "<br>\tleaf = " + leaf + "<br>\tmeanSize = " + meanSize
+                + "<br>}";
         }
     }
 
@@ -115,8 +116,8 @@ public class Flower {
         }
 
         @Override public String toString() {
-            return "\ttemperature = " + temperature + "\n\tlight = " + light + "\n\twatering = "
-                + watering;
+            return "\t{<br>temperature = " + temperature + "<br>\tlight = " + light
+                + "<br>\twatering = " + watering + "<br>}";
         }
     }
 }

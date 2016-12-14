@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE flowers [
+        <!ELEMENT flowers (flower)*>
+        <!ATTLIST flowers
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT flower (name|origin|soil|visualParameters|growingTips|multiplying)*>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT origin (#PCDATA)>
+        <!ELEMENT soil (#PCDATA)>
+        <!ELEMENT visualParameters (halm|leaf|meanSize)*>
+        <!ELEMENT halm (#PCDATA)>
+        <!ELEMENT leaf (#PCDATA)>
+        <!ELEMENT meanSize (#PCDATA)>
+        <!ELEMENT growingTips (temperature|light|watering)*>
+        <!ELEMENT temperature (#PCDATA)>
+        <!ELEMENT light (#PCDATA)>
+        <!ELEMENT watering (#PCDATA)>
+        <!ELEMENT multiplying (#PCDATA)>
+        ]>
 <flowers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="DataBase.xsd">
     <flower>
