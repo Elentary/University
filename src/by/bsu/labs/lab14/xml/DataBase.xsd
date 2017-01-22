@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+
+    <xs:element name="flowers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="flower" type="Flower" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="Flower">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="origin" type="xs:string" minOccurs="0"/>
+            <xs:element name="soil" type="Soil" minOccurs="0"/>
+            <xs:element name="visualParameters" type="VisualParameters" minOccurs="0"/>
+            <xs:element name="growingTips" type="GrowingTips" minOccurs="0"/>
+            <xs:element name="multiplying" type="Multiplying" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GrowingTips">
+        <xs:sequence>
+            <xs:element name="temperature" type="xs:double" minOccurs="0"/>
+            <xs:element name="light" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="watering" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VisualParameters">
+        <xs:sequence>
+            <xs:element name="halm" type="Color" minOccurs="0"/>
+            <xs:element name="leaf" type="Color" minOccurs="0"/>
+            <xs:element name="meanSize" type="xs:double" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="Soil">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Ground"/>
+            <xs:enumeration value="Podzol"/>
+            <xs:enumeration value="SodPodzol"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Multiplying">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="byLeaves"/>
+            <xs:enumeration value="bySeed"/>
+            <xs:enumeration value="byCutting"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Color">
+        <xs:restriction base="xs:string">
+            <!--<xs:pattern value="^((([0-1][0-9]{2};)|(2[0-5][0-5]);)){3}$"/>-->
+            <!--<xs:pattern value="^(([01][0-9][0-9]|2[0-4][0-9]|25[0-5]);){3}$"/>-->
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
